@@ -41,7 +41,6 @@ HEADERS = ["Company Name"] + [f.replace("_", " ").title() for f in FIELDS]
 
 
 def recherche_entreprise(
-    api_key: str,
     nom_entreprise: str,
     model: str = "sonar",
     proxy: str = None,
@@ -154,7 +153,7 @@ if __name__ == "__main__":
         print(f"Ligne {row_idx} : {company_name}")
 
         try:
-            result = recherche_entreprise(API_KEY, company_name, timeout=5)
+            result = recherche_entreprise(company_name, timeout=5)
         except Exception as e:
             print(f"  -> Erreur API pour '{company_name}': {e}")
             continue
